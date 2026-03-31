@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke tests" verbose="1">
+<suite name="Tests" verbose="1">
 
-    <test name="POM - Login Tests">
-        <classes>
-            <class name="org.petya.LoginTest"/>
-        </classes>
-    </test>
 
-    <test name="POM - Header Page Test">
-        <classes>
-            <class name="org.petya.HeaderPageTest"/>
-        </classes>
-    </test>
+        <test name="Tests">
+            <classes>
+                <class name="org.petya.LoginTest"/>
+                <class name="org.petya.HeaderPageTest"/>
+                <class name="org.petya.ScreenshotTest"/>
+            </classes>
+        </test>
+
 
 </suite>

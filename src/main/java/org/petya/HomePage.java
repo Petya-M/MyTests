@@ -11,11 +11,11 @@ public class HomePage extends BasePage{
     }
 
     public String getPageExpectedUrl() {
-        return super.getExpectedUrl(homePageUrl);
+        return super.getExpectedUrl();
     }
 
     public void verifyPageLoaded() {
-        waitForUrl(getExpectedUrl(homePageUrl));
+        waitForUrl(getExpectedUrl());
     }
 
     public boolean isUrlLoaded() {

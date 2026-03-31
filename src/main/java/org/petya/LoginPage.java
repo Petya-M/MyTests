@@ -5,19 +5,22 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage{
 
-    private static final By loginButton=By.cssSelector("#nav-link-login");
-    static final By usernameForm=By.cssSelector("#defaultLoginFormUsername");
-    static final By passwordForm=By.cssSelector("#defaultLoginFormPassword");
-    private static final By signInButton=By.cssSelector("#sign-in-button");
-    private static final By profileButton=By.cssSelector("#nav-link-profile");
+    private final By loginButton=By.cssSelector("#nav-link-login");
+    private final By usernameForm=By.cssSelector("#defaultLoginFormUsername");
+    private final By passwordForm=By.cssSelector("#defaultLoginFormPassword");
+    private final By signInButton=By.cssSelector("#sign-in-button");
+    private final By profileButton=By.cssSelector("#nav-link-profile");
+
+    private final String loginPageUrl = "/users/login";
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
+
+
     public void navigateToPage(){
-        String loginPageUrl = "/users/login";
-        navigateTo(loginPageUrl);
+        navigateTo();
     }
 
     public void enterUsername(String username) {
@@ -28,18 +31,20 @@ public class LoginPage extends BasePage{
         typeText(passwordForm, password);
     }
 
-    public void signInButton(){
+    public void clickSignInButton(){
         click(signInButton);
     }
 
     public void login (String user, String pass){
         enterUsername(user);
         enterPasswors(pass);
-        signInButton();
+        clickSignInButton();
     }
 
     public void clickProfileButton(){
         click(profileButton);
 
     }
+
+
 }

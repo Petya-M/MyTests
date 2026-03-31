@@ -21,8 +21,11 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    protected String getExpectedUrl(String urlSuffix) {
-        return baseUrl + urlSuffix;
+    public BasePage() {
+    }
+
+    protected String getExpectedUrl() {
+        return baseUrl + "/posts/all";
     }
 
     public String getActualCurrentUrl() {
@@ -45,8 +48,8 @@ public class BasePage {
         waitAndClickable(locator).click();
     }
 
-    protected void navigateTo(String urlSuffix) {
-        driver.get(baseUrl + urlSuffix);
+    protected void navigateTo() {
+        driver.get(baseUrl + "/users/login");
     }
 
     protected void typeText(By locator, String text) {

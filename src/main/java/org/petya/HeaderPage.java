@@ -4,10 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.time.Duration;
 
 public class HeaderPage extends BasePage {
 
@@ -17,7 +15,7 @@ public class HeaderPage extends BasePage {
     private final By inputPostField = By.cssSelector("input.input-lg");
     private final By clickCreatePost = By.cssSelector("#create-post");
     private final By postTextField = By.cssSelector("input.mb-4");
-    private final By validateToastMessageAppearance=By.cssSelector("#toast-container");
+    private final By createdPostToastMessage = By.cssSelector("#toast-container");
 
     public void uploadPicture(File file) {
         waitPresentInDom(inputPostField).sendKeys(file.getAbsolutePath());
@@ -35,21 +33,24 @@ public class HeaderPage extends BasePage {
         click(profilePageHeader);
     }
 
-    public void clickOnNewPost() {click(newPostHeader);
+    public void clickOnNewPost() {
+        click(newPostHeader);
     }
+
     public void selectPostField() {
         click(inputPostField);
     }
-    public void clickCreatePostButton(){
+
+    public void clickCreatePostButton() {
         click(clickCreatePost);
     }
 
-    public void enterPostText (String postText){
+    public void enterPostText(String postText) {
         typeText(postTextField, postText);
     }
 
-    public WebElement waitForElementVisible(By locator, int timeoutSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
+    //public boolean validateToastMessageAppearance(String message) {
+       // return waitForElementToBeVisible(String.format(toastMessage, message));
+    //}
+
 }

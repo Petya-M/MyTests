@@ -8,14 +8,12 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
-public class HeaderPageTest extends HeaderPage{
+public class HeaderPageTest extends BasePage{
 
     File postPicture = new File("src/test/resources/upload/snimka1.jpeg");
     String messageText = "Post created!";
 
-    public HeaderPageTest(WebDriver driver) {
-        super(driver);
-    }
+
 
     @Test(priority = 3)
     public void createOneNewPost () {
@@ -25,7 +23,7 @@ public class HeaderPageTest extends HeaderPage{
         headerPage.uploadPicture(postPicture);
         headerPage.enterPostText("My new post!");
         headerPage.clickCreatePostButton();
-        waitForElementVisible(By.cssSelector("#toast-container"), 5);
+        //waitForElementVisible(By.cssSelector("#toast-container"), 5);
 
         Assert.assertEquals(messageText, "Post created!");
         

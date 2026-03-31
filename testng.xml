@@ -3,13 +3,23 @@
 <suite name="Tests" verbose="1">
 
 
-        <test name="Tests">
-            <classes>
-                <class name="org.petya.LoginTest"/>
-                <class name="org.petya.HeaderPageTest"/>
-                <class name="org.petya.ScreenshotTest"/>
-            </classes>
-        </test>
+    <test name="Login Tests">
+        <classes>
+            <class name="org.petya.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Header Page Test">
+        <classes>
+            <class name="org.petya.HeaderPageTest"/>
+        </classes>
+    </test>
+
+    <test name="Screenshot Test">
+        <classes>
+            <class name="org.petya.ScreenshotTest"/>
+        </classes>
+    </test>
 
 
 </suite>

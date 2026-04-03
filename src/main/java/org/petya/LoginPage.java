@@ -11,6 +11,7 @@ public class LoginPage extends BasePage{
     private final By signInButton=By.cssSelector("#sign-in-button");
     private final By profileButton=By.cssSelector("#nav-link-profile");
 
+
     private final String loginPageUrl = "/users/login";
 
     public LoginPage(WebDriver driver) {
@@ -19,15 +20,15 @@ public class LoginPage extends BasePage{
 
 
 
-    public void navigateToPage(){
-        navigateTo();
-    }
+   // public void navigateToPage(){
+        ///navigateTo();
+    //}
 
     public void enterUsername(String username) {
         typeText(usernameForm, username);
     }
 
-    public void enterPasswors(String password){
+    public void enterPassword(String password){
         typeText(passwordForm, password);
     }
 
@@ -35,9 +36,13 @@ public class LoginPage extends BasePage{
         click(signInButton);
     }
 
+    public void clickLoginButton(){
+        click(loginButton);
+    }
+
     public void login (String user, String pass){
         enterUsername(user);
-        enterPasswors(pass);
+        enterPassword(pass);
         clickSignInButton();
     }
 
@@ -47,4 +52,7 @@ public class LoginPage extends BasePage{
     }
 
 
+   // public void navigateToPage() {
+       // driver.navigate().to(baseUrl);
+    //}
 }

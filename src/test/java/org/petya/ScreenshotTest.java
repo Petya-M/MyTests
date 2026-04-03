@@ -29,7 +29,7 @@ public class ScreenshotTest extends BaseTest {
         new File(SCREENSHOTS_DIR).mkdirs();
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.navigateToPage();
+        loginPage.navigateToBasePage();
     }
     @Test
     public void loginFormScreenshot() throws IOException {

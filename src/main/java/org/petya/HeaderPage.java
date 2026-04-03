@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 
@@ -16,10 +17,8 @@ public class HeaderPage extends BasePage {
     private final By clickCreatePost = By.cssSelector("#create-post");
     private final By postTextField = By.cssSelector("input.mb-4");
     private final By createdPostToastMessage = By.cssSelector("#toast-container");
+    private final By dislikeButton = By.xpath("/html/body/app-root/div[2]/app-all-posts/div/div/div[2]/app-post-detail/div/div[2]/div/div[1]/i[2]");
 
-    public void uploadPicture(File file) {
-        waitPresentInDom(inputPostField).sendKeys(file.getAbsolutePath());
-    }
 
     protected WebElement waitPresentInDom(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -27,6 +26,10 @@ public class HeaderPage extends BasePage {
 
     public HeaderPage(WebDriver driver) {
         super(driver); // Calls the BasePage constructor
+    }
+
+    public void uploadPicture(File file) {
+        waitPresentInDom(inputPostField).sendKeys(file.getAbsolutePath());
     }
 
     public void clickOnHeaderProfile() {
@@ -47,6 +50,10 @@ public class HeaderPage extends BasePage {
 
     public void enterPostText(String postText) {
         typeText(postTextField, postText);
+    }
+
+    public void clickDislikeButton(){
+        click(dislikeButton);
     }
 
     //public boolean validateToastMessageAppearance(String message) {

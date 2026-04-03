@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 
 public class BasePage {
@@ -14,6 +15,7 @@ public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
+    protected final By inputFileElement = By.cssSelector("input.file[type='file']");
     protected static final String baseUrl = "http://training.skillo-bg.com:4200";
 
     public BasePage(WebDriver driver) {
@@ -21,11 +23,8 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    public BasePage() {
-    }
-
-    protected String getExpectedUrl() {
-        return baseUrl + "/posts/all";
+    protected String getExpectedUrl(String urlSuffix) {
+        return baseUrl + urlSuffix;
     }
 
     public String getActualCurrentUrl() {
@@ -44,16 +43,33 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    protected WebElement waitPresentInDom(By locator) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
     protected void click(By locator) {
         waitAndClickable(locator).click();
     }
 
-    protected void navigateTo() {
-        driver.get(baseUrl + "/users/login");
+    //protected void navigateTo() {
+    //    driver.get(baseUrl + "http://training.skillo-bg.com:4200/posts/all");
+    //}
+
+    public void navigateToBasePage() {
+        driver.navigate().to(baseUrl);
     }
 
     protected void typeText(By locator, String text) {
         waitAndVisible(locator).clear();
         waitAndVisible(locator).sendKeys(text);
+    }
+
+    protected int getElementsCount(By locator) {
+        waitAndVisible(locator);
+        return driver.findElements(locator).size();
+    }
+
+    public void uploadPicture(File file) {
+        waitPresentInDom(inputFileElement).sendKeys(file.getAbsolutePath());
     }
 }

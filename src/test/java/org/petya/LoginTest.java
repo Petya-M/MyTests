@@ -32,16 +32,15 @@ public class LoginTest extends BaseTest{
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
 
-        loginPage.navigateToPage();
+        loginPage.navigateToBasePage();
+        loginPage.clickLoginButton();
         loginPage.login("petyamar", "159753");
-        loginPage.clickSignInButton();
         homePage.verifyPageLoaded();
         Assert.assertTrue(homePage.isUrlLoaded(), "User was not redirected to the Home Page!");
     }
 
     @Test(priority = 2, dataProvider = "loginCredentials")
     public void verifyLogin(String username, String password, boolean expectedResult) {
-        System.out.println("Checking login for: " + username);
         LoginService loginService = new LoginService();
         boolean actualResult = loginService.login(username, password);
 
@@ -51,7 +50,8 @@ public class LoginTest extends BaseTest{
     @Test(priority = 3)
     public void clickProfile() throws InterruptedException{
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.navigateToPage();
+        loginPage.navigateToBasePage();
+        loginPage.clickLoginButton();
         loginPage.login("petyamar", "159753");
         loginPage.clickSignInButton();
         loginPage.clickProfileButton();

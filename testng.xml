@@ -11,7 +11,7 @@
 
     <test name="Header Page Test">
         <classes>
-            <class name="org.petya.HeaderPageTest"/>
+            <class name="org.petya.DislikeButtonTest"/>
         </classes>
     </test>
 

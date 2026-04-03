@@ -33,7 +33,7 @@ public class ScreenshotTest extends BaseTest {
     }
     @Test
     public void loginFormScreenshot() throws IOException {
-        WebElement loginForm = driver.findElement(By.cssSelector("form"));
+        WebElement loginForm = driver.findElement(By.cssSelector(".offset-2"));
         File tempFile = loginForm.getScreenshotAs(OutputType.FILE);
 
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
@@ -44,7 +44,6 @@ public class ScreenshotTest extends BaseTest {
 
         System.out.println("Element screenshot saved to: " + destination.toAbsolutePath());
         Assert.assertTrue(Files.exists(destination), "Element screenshot file should exist");
-
 
     }
 }

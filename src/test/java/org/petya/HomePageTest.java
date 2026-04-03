@@ -10,6 +10,7 @@ public class HomePageTest extends BaseTest {
     public void loginOnce() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToBasePage();
+        loginPage.clickLoginButton();
         loginPage.login("petyamar", "159753");
     }
 

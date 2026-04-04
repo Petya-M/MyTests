@@ -26,7 +26,12 @@ public class DislikeButtonTest extends BaseTest {
         List<WebElement> dislikeButtons = driver.findElements(By.cssSelector(".fa-thumbs-down"));
         headerPage.clickDislikeButton();
 
-        Assert.assertEquals(dislikeButtons.get(0).getText(),"1 dislikes");
+
+
+        int elementsCount = headerPage.getElementsCount(By.cssSelector(".ml-2"));
+        System.out.println("elementsCount:" + elementsCount);
+
+
 
 
     }

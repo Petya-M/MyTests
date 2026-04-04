@@ -51,9 +51,9 @@ public class BasePage {
         waitAndClickable(locator).click();
     }
 
-    //protected void navigateTo() {
-    //    driver.get(baseUrl + "http://training.skillo-bg.com:4200/posts/all");
-    //}
+    protected void navigateTo() {
+      driver.get(baseUrl + "http://training.skillo-bg.com:4200/posts/all");
+    }
 
     public void navigateToBasePage() {
         driver.navigate().to(baseUrl);
@@ -72,4 +72,15 @@ public class BasePage {
     public void uploadPicture(File file) {
         waitPresentInDom(inputFileElement).sendKeys(file.getAbsolutePath());
     }
+
+    protected boolean isElementVisible(By locator) {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return true;
+        } catch (Exception e) {
+            System.out.println("Element: " + locator + "NOT FOUND!");
+            return false;
+        }
+    }
+
 }

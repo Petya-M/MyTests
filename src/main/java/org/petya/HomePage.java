@@ -24,13 +24,17 @@ public class HomePage extends BasePage{
         return getActualCurrentUrl().equals(getPageExpectedUrl());
     }
 
-    public void navigateToPage(String homePageUrl) {
-        navigateToPage(this.homePageUrl);
-    }
+    public void navigateToBasePage(){
+
+    };
 
     public String getPostAuthorByIndex(int index) {
         By postAuthorLocator = By.xpath("(//div[contains(@class, 'post-list-container')]//app-post-detail//a[contains(@class, 'post-user')])[" + index + "]");
         return waitAndVisible(postAuthorLocator).getText();
+    }
+
+    public boolean hasPostByAuthorName(String authorName) {
+        return isElementVisible(By.xpath("//app-post-detail//a[text()=\"" + authorName + "\"]"));
     }
 
 }

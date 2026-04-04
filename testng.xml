@@ -11,9 +11,16 @@
 
     <test name="Header Page Test">
         <classes>
+            <class name="org.petya.CreateNewPostTest"/>
+        </classes>
+    </test>
+
+    <test name="Header Page Test">
+        <classes>
             <class name="org.petya.DislikeButtonTest"/>
         </classes>
     </test>
+
 
     <test name="Screenshot Test">
         <classes>
@@ -21,5 +28,9 @@
         </classes>
     </test>
 
-
+    <test name="Header Page Test">
+        <classes>
+            <class name="org.petya.HomePageTest"/>
+        </classes>
+    </test>
 </suite>

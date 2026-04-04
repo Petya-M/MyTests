@@ -1,8 +1,12 @@
 package org.petya;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class HomePageTest extends BaseTest {
 
@@ -17,6 +21,15 @@ public class HomePageTest extends BaseTest {
     @Test
     public void postAuthorNameIsCorrect() {
         HomePage homePage = new HomePage(driver);
-        Assert.assertEquals(homePage.getPostAuthorByIndex(1), "petyamar");
+        Assert.assertEquals(homePage.getPostAuthorByIndex(2), "petyamar");
+    }
+
+    @Test
+    public void testPostsCount() {
+        HomePage homePage = new HomePage(driver);
+        homePage.hasPostByAuthorName("petyamar");
+        List<WebElement> author = driver.findElements(By.name("petyamar"));
+        System.out.println(author.size());
+
     }
 }

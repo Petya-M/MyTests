@@ -56,6 +56,10 @@ public class HeaderPage extends BasePage {
         click(dislikeButton);
     }
 
+    protected int getElementsCount(By locator) {
+        return super.getElementsCount(locator);
+    }
+
     //public boolean validateToastMessageAppearance(String message) {
        // return waitForElementToBeVisible(String.format(toastMessage, message));
     //}

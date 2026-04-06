@@ -20,10 +20,10 @@ public class CreateNewPostTest extends BaseTest{
 
 
         loginPage = new LoginPage(driver);
+        headerPage = new HeaderPage(driver);
         loginPage.navigateToBasePage();
         loginPage.clickLoginButton();
         loginPage.login("petyamar", "159753");
-        headerPage = new HeaderPage(driver);
         headerPage.clickOnNewPost();
         headerPage.selectPostField();
         headerPage.uploadPicture(postPicture);

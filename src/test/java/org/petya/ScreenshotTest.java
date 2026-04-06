@@ -20,6 +20,7 @@ public class ScreenshotTest extends BaseTest {
 
 
     private static final String SCREENSHOTS_DIR = "target/screenshots";
+   
 
     @BeforeClass
     @Override
@@ -27,12 +28,15 @@ public class ScreenshotTest extends BaseTest {
         super.setUp();
 
         new File(SCREENSHOTS_DIR).mkdirs();
-
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.navigateToBasePage();
     }
+    
     @Test
     public void loginFormScreenshot() throws IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        BasePage basePage = new BasePage(driver);
+        loginPage.navigateToBasePage();
+        loginPage.clickLoginButton();
+        basePage.isElementVisible(By.className(".offser-2"));
         WebElement loginForm = driver.findElement(By.cssSelector(".offset-2"));
         File tempFile = loginForm.getScreenshotAs(OutputType.FILE);
 

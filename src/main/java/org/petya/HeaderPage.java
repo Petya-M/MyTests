@@ -10,19 +10,13 @@ import java.io.File;
 
 public class HeaderPage extends BasePage {
 
-    private final By homePageHeaderLink = By.cssSelector("#nav-link-home");
     private final By profilePageHeader = By.cssSelector("#nav-link-profile");
     private final By newPostHeader = By.cssSelector("#nav-link-new-post");
     private final By inputPostField = By.cssSelector("input.input-lg");
     private final By clickCreatePost = By.cssSelector("#create-post");
     private final By postTextField = By.cssSelector("input.mb-4");
-    private final By createdPostToastMessage = By.cssSelector("#toast-container");
-    private final By dislikeButton = By.xpath("/html/body/app-root/div[2]/app-all-posts/div/div/div[2]/app-post-detail/div/div[2]/div/div[1]/i[2]");
+    private final By dislikeButton = By.xpath("//app-post-detail[.//img[@src='https://i.imgur.com/1Pln5FJ.jpeg']]//i[contains(@class, 'fa-thumbs-down')]");
 
-
-    protected WebElement waitPresentInDom(By locator) {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-    }
 
     public HeaderPage(WebDriver driver) {
         super(driver); // Calls the BasePage constructor
@@ -59,9 +53,5 @@ public class HeaderPage extends BasePage {
     protected int getElementsCount(By locator) {
         return super.getElementsCount(locator);
     }
-
-    //public boolean validateToastMessageAppearance(String message) {
-       // return waitForElementToBeVisible(String.format(toastMessage, message));
-    //}
 
 }

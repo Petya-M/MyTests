@@ -2,17 +2,14 @@ package org.petya;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.List;
+import static org.openqa.selenium.By.*;
 
 public class DislikeButtonTest extends BaseTest {
 
 
     @Test
-    public void clickDislikeButton(){
+    public void clickDislikeButton() {
 
         LoginPage loginPage = new LoginPage(driver);
         HeaderPage headerPage = new HeaderPage(driver);
@@ -21,16 +18,17 @@ public class DislikeButtonTest extends BaseTest {
         loginPage.navigateToBasePage();
         loginPage.clickLoginButton();
         loginPage.login("petyamar", "159753");
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("app-post-detail")));
-        List<WebElement> dislikeButtons = driver.findElements(By.cssSelector(".fa-thumbs-down"));
         headerPage.clickDislikeButton();
 
+        WebElement post;
+        post = driver.findElement(By.xpath("//app-post-detail[.//a[@href='/users/11612']]"));
+        WebElement dislikesElement = post.findElement(
+                xpath(".//strong[contains(text(),'dislikes')]")
+        );
 
-
-        int elementsCount = headerPage.getElementsCount(By.cssSelector(".ml-2"));
-        System.out.println("elementsCount:" + elementsCount);
-
+        String dislikesText = dislikesElement.getText();
+        int dislikesCount = Integer.parseInt(dislikesText.split(" ")[0]);
+        System.out.println("Number of displikes: " + dislikesCount);
 
 
 

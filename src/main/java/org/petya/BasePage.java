@@ -73,7 +73,7 @@ public class BasePage {
         waitPresentInDom(inputFileElement).sendKeys(file.getAbsolutePath());
     }
 
-    protected boolean isElementVisible(By locator) {
+    public boolean isElementVisible(By locator) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             return true;

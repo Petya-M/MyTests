@@ -9,13 +9,13 @@
         </classes>
     </test>
 
-    <test name="Header Page Test">
+    <test name="Create new post Test">
         <classes>
             <class name="org.petya.CreateNewPostTest"/>
         </classes>
     </test>
 
-    <test name="Header Page Test">
+    <test name="Dislike button Test">
         <classes>
             <class name="org.petya.DislikeButtonTest"/>
         </classes>

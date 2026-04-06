@@ -33,11 +33,6 @@ public class CreateNewPostTest extends BaseTest{
         Assert.assertEquals(messageText, "Post created!");
     }
 
-    @Test(priority = 4)
-    public void testPageScreenshot() throws InterruptedException {
-        Thread.sleep(5333);
-        loginPage.uploadPicture(postPicture);
-    }
 }
 
 

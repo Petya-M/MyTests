@@ -36,7 +36,10 @@ Dislike second post
 Verify post count and author
 
 
-
-Run Tests
+How to Run
+Run the full suite via Maven (uses testng.xml)
 mvn clean test
+
+Run a specific test class
+mvn clean test -Dtest=LoginTest
 

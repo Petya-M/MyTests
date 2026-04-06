@@ -50,12 +50,13 @@ public class LoginTest extends BaseTest{
     @Test(priority = 3)
     public void clickProfile() throws InterruptedException{
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.navigateToBasePage();
-        loginPage.clickLoginButton();
-        loginPage.login("petyamar", "159753");
-        loginPage.clickSignInButton();
+        //loginPage.navigateToBasePage();
+        //loginPage.clickLoginButton();
+        //loginPage.login("petyamar", "159753");
+        //loginPage.clickSignInButton();
+        //Thread.sleep(2222);
         loginPage.clickProfileButton();
-        Thread.sleep(3333);
+        Thread.sleep(2222);
 
     }
 

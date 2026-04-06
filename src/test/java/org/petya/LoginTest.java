@@ -14,7 +14,11 @@ import java.time.Duration;
 //import static org.petya.LoginPage.passwordForm;
 //import static org.petya.LoginPage.usernameForm;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BasePage{
+
+    public LoginTest(WebDriver driver) {
+        super(driver);
+    }
 
 
     @DataProvider(name = "loginCredentials")

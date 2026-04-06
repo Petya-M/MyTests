@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage{
 
-    private final String homePageUrl = "/posts/all";
+    private final String homePageUrl = "/users/login";
 
     public HomePage(WebDriver driver) {
         super(driver);

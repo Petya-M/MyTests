@@ -8,16 +8,22 @@ import java.io.File;
 
 public class CreateNewPostTest extends BaseTest{
 
-    LoginPage loginPage;
-    HeaderPage headerPage;
+   //LoginPage loginPage;
+    //HeaderPage headerPage;
     File postPicture = new File("src/test/resources/upload/snimka1.jpg");
     String messageText = "Post created!";
 
-    @BeforeClass
-    @Override
-    public void setUp() {
-        super.setUp();
+   // @BeforeClass
+    //@Override
+    //public void setUp() {
+        //super.setUp();
+      @Test
+    public void testCreateNewPost(){
 
+          new LoginPage(driver);
+          LoginPage loginPage;
+          new HeaderPage(driver);
+          HeaderPage headerPage;
 
         loginPage = new LoginPage(driver);
         headerPage = new HeaderPage(driver);
@@ -33,11 +39,6 @@ public class CreateNewPostTest extends BaseTest{
         Assert.assertEquals(messageText, "Post created!");
     }
 
-    @Test(priority = 4)
-    public void testPageScreenshot() throws InterruptedException {
-        Thread.sleep(5333);
-        loginPage.uploadPicture(postPicture);
-    }
 }
 
 

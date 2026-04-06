@@ -28,7 +28,7 @@
         </classes>
     </test>
 
-    <test name="Header Page Test">
+    <test name="Home Page Test">
         <classes>
             <class name="org.petya.HomePageTest"/>
         </classes>

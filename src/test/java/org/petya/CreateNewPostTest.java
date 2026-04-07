@@ -1,22 +1,20 @@
 package org.petya;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import java.io.File;
+
+import static org.testng.Assert.assertTrue;
 
 public class CreateNewPostTest extends BaseTest {
 
-    //LoginPage loginPage;
-    //HeaderPage headerPage;
     File postPicture = new File("src/test/resources/upload/snimka1.jpg");
     String messageText = "Post created!";
+    String postText = "My new post!";
 
-    // @BeforeClass
-    //@Override
-    //public void setUp() {
-    //super.setUp();
     @Test
     public void testCreateNewPost() {
 
@@ -33,9 +31,13 @@ public class CreateNewPostTest extends BaseTest {
         headerPage.clickOnNewPost();
         headerPage.uploadPicture(postPicture);
         headerPage.enterPostText("My new post!");
+        Assert.assertEquals(postText, "My new post!");
         headerPage.clickCreatePostButton();
+        WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='toast-container']//div[contains(@class,'toast-message')]")));
+        Assert.assertTrue(toast.getText().contains("Post created!"), "Post not created");
 
-        Assert.assertEquals(messageText, "Post created!");
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='toast-container']//div[contains(@class,'toast-message') and text()='Post created!']")));
+        //Assert.assertEquals(messageText, "Post created!");
     }
 
 }

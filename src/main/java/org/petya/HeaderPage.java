@@ -15,7 +15,7 @@ public class HeaderPage extends BasePage {
     private final By inputPostField = By.cssSelector(".file.ng-untouched");
     private final By clickCreatePost = By.cssSelector("#create-post");
     private final By postTextField = By.cssSelector("input.mb-4");
-    private final By dislikeButton = By.xpath("//app-post-detail[.//img[@src='https://i.imgur.com/1Pln5FJ.jpeg']]//i[contains(@class, 'fa-thumbs-down')]");
+    private final By dislikeButton = By.xpath("(//app-post-detail)[1]//i[contains(@class,'fa-thumbs-down')]");
 
 
     public HeaderPage(WebDriver driver) {

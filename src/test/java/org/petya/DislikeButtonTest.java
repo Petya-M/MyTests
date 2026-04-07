@@ -24,7 +24,7 @@ public class DislikeButtonTest extends BaseTest {
         headerPage.clickDislikeButton();
 
         WebElement post;
-        post = driver.findElement(By.xpath("//app-post-detail[.//a[@href='/users/11612']]"));
+        post = driver.findElement(By.xpath("(//div[contains(@class,'post-list-container')]//app-post-detail)[1]"));
         WebElement dislikesElement = post.findElement(
                 xpath(".//strong[contains(text(),'dislikes')]")
         );

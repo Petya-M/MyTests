@@ -31,7 +31,6 @@ public class CreateNewPostTest extends BaseTest {
         loginPage.clickLoginButton();
         loginPage.login("petyamar", "159753");
         headerPage.clickOnNewPost();
-        headerPage.selectPostField();
         headerPage.uploadPicture(postPicture);
         headerPage.enterPostText("My new post!");
         headerPage.clickCreatePostButton();

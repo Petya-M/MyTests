@@ -52,7 +52,7 @@ public class BasePage {
     }
 
     protected void navigateTo() {
-      driver.get(baseUrl + "http://training.skillo-bg.com:4200/posts/all");
+        driver.get(baseUrl + "http://training.skillo-bg.com:4200/posts/all");
     }
 
     public void navigateToBasePage() {

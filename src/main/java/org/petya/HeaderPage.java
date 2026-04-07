@@ -46,7 +46,7 @@ public class HeaderPage extends BasePage {
         typeText(postTextField, postText);
     }
 
-    public void clickDislikeButton(){
+    public void clickDislikeButton() {
         click(dislikeButton);
     }
 

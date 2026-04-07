@@ -16,12 +16,10 @@ public class BaseTest {
     protected WebDriverWait wait;
 
 
-
-
     @BeforeClass
     public void setUp() {
-       driver = new ChromeDriver();
-       wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));

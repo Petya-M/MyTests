@@ -14,7 +14,7 @@ import java.time.Duration;
 //import static org.petya.LoginPage.passwordForm;
 //import static org.petya.LoginPage.usernameForm;
 
-public class LoginTest extends BasePage{
+public class LoginTest extends BasePage {
 
     public LoginTest(WebDriver driver) {
         super(driver);
@@ -23,7 +23,7 @@ public class LoginTest extends BasePage{
 
     @DataProvider(name = "loginCredentials")
     public Object[][] getData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"petyamar", "159753", true},  // Valid user
                 {"petyamar", "pass456", false}, //
                 {"invalid_user", "333333", false}  // Non-existent user
@@ -32,7 +32,7 @@ public class LoginTest extends BasePage{
 
 
     @Test(priority = 1)
-    public void testLogin(){
+    public void testLogin() {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
 
@@ -52,7 +52,7 @@ public class LoginTest extends BasePage{
     }
 
     @Test(priority = 3)
-    public void clickProfile() throws InterruptedException{
+    public void clickProfile() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToBasePage();
         loginPage.clickLoginButton();

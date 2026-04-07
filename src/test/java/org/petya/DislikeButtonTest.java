@@ -3,6 +3,7 @@ package org.petya;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
 import static org.openqa.selenium.By.*;
 
 public class DislikeButtonTest extends BaseTest {
@@ -29,7 +30,6 @@ public class DislikeButtonTest extends BaseTest {
         String dislikesText = dislikesElement.getText();
         int dislikesCount = Integer.parseInt(dislikesText.split(" ")[0]);
         System.out.println("Number of displikes: " + dislikesCount);
-
 
 
     }

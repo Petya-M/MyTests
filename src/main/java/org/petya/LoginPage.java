@@ -3,13 +3,13 @@ package org.petya;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
-    private final By loginButton=By.cssSelector("#nav-link-login");
-    private final By usernameForm=By.cssSelector("#defaultLoginFormUsername");
-    private final By passwordForm=By.cssSelector("#defaultLoginFormPassword");
-    private final By signInButton=By.cssSelector("#sign-in-button");
-    private final By profileButton=By.cssSelector("#nav-link-profile");
+    private final By loginButton = By.cssSelector("#nav-link-login");
+    private final By usernameForm = By.cssSelector("#defaultLoginFormUsername");
+    private final By passwordForm = By.cssSelector("#defaultLoginFormPassword");
+    private final By signInButton = By.cssSelector("#sign-in-button");
+    private final By profileButton = By.cssSelector("#nav-link-profile");
 
 
     private final String loginPageUrl = "/users/login";
@@ -19,40 +19,39 @@ public class LoginPage extends BasePage{
     }
 
 
+    // public void navigateToPage(){
 
-   // public void navigateToPage(){
-        ///navigateTo();
+    /// navigateTo();
     //}
-
     public void enterUsername(String username) {
         typeText(usernameForm, username);
     }
 
-    public void enterPassword(String password){
+    public void enterPassword(String password) {
         typeText(passwordForm, password);
     }
 
-    public void clickSignInButton(){
+    public void clickSignInButton() {
         click(signInButton);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         click(loginButton);
     }
 
-    public void login (String user, String pass){
+    public void login(String user, String pass) {
         enterUsername(user);
         enterPassword(pass);
         clickSignInButton();
     }
 
-    public void clickProfileButton(){
+    public void clickProfileButton() {
         click(profileButton);
 
     }
 
 
-   // public void navigateToPage() {
-       // driver.navigate().to(baseUrl);
+    // public void navigateToPage() {
+    // driver.navigate().to(baseUrl);
     //}
 }

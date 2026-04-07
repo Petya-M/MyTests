@@ -6,24 +6,24 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
-public class CreateNewPostTest extends BaseTest{
+public class CreateNewPostTest extends BaseTest {
 
-   //LoginPage loginPage;
+    //LoginPage loginPage;
     //HeaderPage headerPage;
     File postPicture = new File("src/test/resources/upload/snimka1.jpg");
     String messageText = "Post created!";
 
-   // @BeforeClass
+    // @BeforeClass
     //@Override
     //public void setUp() {
-        //super.setUp();
-      @Test
-    public void testCreateNewPost(){
+    //super.setUp();
+    @Test
+    public void testCreateNewPost() {
 
-          new LoginPage(driver);
-          LoginPage loginPage;
-          new HeaderPage(driver);
-          HeaderPage headerPage;
+        new LoginPage(driver);
+        LoginPage loginPage;
+        new HeaderPage(driver);
+        HeaderPage headerPage;
 
         loginPage = new LoginPage(driver);
         headerPage = new HeaderPage(driver);

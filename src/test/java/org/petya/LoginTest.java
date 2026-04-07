@@ -7,19 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.TestNGException;
 
-import java.time.Duration;
-
-//import static org.petya.LoginPage.passwordForm;
-//import static org.petya.LoginPage.usernameForm;
-
-public class LoginTest extends BasePage {
-
-    public LoginTest(WebDriver driver) {
-        super(driver);
-    }
-
+public class LoginTest extends BaseTest {
 
     @DataProvider(name = "loginCredentials")
     public Object[][] getData() {
@@ -52,14 +41,16 @@ public class LoginTest extends BasePage {
     }
 
     @Test(priority = 3)
-    public void clickProfile() throws InterruptedException {
+    public void clickProfile() {
         LoginPage loginPage = new LoginPage(driver);
+        BasePage basePage = new BasePage(driver);
         loginPage.navigateToBasePage();
         loginPage.clickLoginButton();
         loginPage.login("petyamar", "159753");
-        loginPage.clickSignInButton();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#nav-link-profile")));
         loginPage.clickProfileButton();
-        Thread.sleep(3333);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".fas.fa-user-edit")));
+        Assert.assertTrue(basePage.getActualCurrentUrl().contains("11612"),"Not on the Profile page");
 
     }
 

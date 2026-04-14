@@ -10,11 +10,12 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
 public class BaseTest {
-    protected WebDriver driver;
+    public WebDriver driver;
     protected WebDriverWait wait;
 
     @BeforeMethod
     public void setUp() {
+        //Initialize the driver
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -24,8 +25,14 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
+        //Close the browser
         if (driver != null) {
             driver.quit();
         }
+    }
+
+
+    public WebDriver driver() {
+        return null;
     }
 }

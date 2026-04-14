@@ -19,16 +19,14 @@ public class HomePage extends BasePage {
         return super.getExpectedUrl(homePageUrl);
     }
 
-    public boolean isUrlLoaded() {
-        verifyPageLoaded();
-        return getActualCurrentUrl().equals(getPageExpectedUrl());
-    }
+    //public boolean isUrlLoaded() {
+        //verifyPageLoaded();
+       // return getActualCurrentUrl().equals(getPageExpectedUrl());
+   // }
 
     public void navigateToBasePage() {
-
+        driver.get(baseUrl);
     }
-
-    ;
 
     public String getPostAuthorByIndex(int index) {
         By postAuthorLocator = By.xpath("(//div[contains(@class, 'post-list-container')]//app-post-detail//a[contains(@class, 'post-user')])[" + index + "]");

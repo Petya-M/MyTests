@@ -51,10 +51,6 @@ public class BasePage {
         waitAndClickable(locator).click();
     }
 
-    protected void navigateTo() {
-        driver.get(baseUrl + "/posts/all");
-    }
-
     public void navigateToBasePage() {
         driver.navigate().to(baseUrl);
     }

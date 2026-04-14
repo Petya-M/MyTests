@@ -28,7 +28,7 @@ public class DislikeButtonTest extends BaseTest {
         WebElement dislikesElement = post.findElement(xpath(".//strong[contains(text(),'dislikes')]"));
         String dislikesText = dislikesElement.getText();
         int dislikesCount = Integer.parseInt(dislikesText.split(" ")[0]);
-        System.out.println("Number of displikes: " + dislikesCount);
+        System.out.println("Number of dislikes: " + dislikesCount);
        // Assert.notNull(dislikesCount, "dislikesCount should not be null");
         Assert.assertTrue(dislikesCount > 0, "dislikesCount should not be 0");
     }

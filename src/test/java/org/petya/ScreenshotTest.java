@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter;
 public class ScreenshotTest extends BaseTest {
 
 
-    private static final String SCREENSHOTS_DIR = "target/screenshots";
+    private static final String SCREENSHOTS_DIR = "src/test/resources/screenshots";
 
 
     @BeforeClass

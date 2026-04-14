@@ -16,6 +16,7 @@ public class HeaderPage extends BasePage {
     private final By clickCreatePost = By.cssSelector("#create-post");
     private final By postTextField = By.cssSelector("input.mb-4");
     private final By dislikeButton = By.xpath("(//app-post-detail)[1]//i[contains(@class,'fa-thumbs-down')]");
+    String postText = "My new post!";
 
 
     public HeaderPage(WebDriver driver) {

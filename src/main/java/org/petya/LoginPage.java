@@ -10,8 +10,6 @@ public class LoginPage extends BasePage {
     private final By passwordForm = By.cssSelector("#defaultLoginFormPassword");
     private final By signInButton = By.cssSelector("#sign-in-button");
     private final By profileButton = By.cssSelector("#nav-link-profile");
-
-
     private final String loginPageUrl = "/users/login";
 
     public LoginPage(WebDriver driver) {

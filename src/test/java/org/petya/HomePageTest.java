@@ -19,8 +19,9 @@ public class HomePageTest extends BaseTest {
         loginPage.login("petyamar", "159753");
     }
 
+    //Gets the posts count for one user
     @Test
-    public void testPostsCount() {
+    public void getPostsCountForOneUser() {
         HomePage homePage = new HomePage(driver);
         homePage.hasPostByAuthorName("petyamar");
         List<WebElement> author = driver.findElements(By.xpath("//app-post-detail[.//a[@href='/users/11612']]"));

@@ -25,10 +25,7 @@ public class DislikeButtonTest extends BaseTest {
 
         WebElement post;
         post = driver.findElement(By.xpath("(//div[contains(@class,'post-list-container')]//app-post-detail)[1]"));
-        WebElement dislikesElement = post.findElement(
-                xpath(".//strong[contains(text(),'dislikes')]")
-        );
-
+        WebElement dislikesElement = post.findElement(xpath(".//strong[contains(text(),'dislikes')]"));
         String dislikesText = dislikesElement.getText();
         int dislikesCount = Integer.parseInt(dislikesText.split(" ")[0]);
         System.out.println("Number of displikes: " + dislikesCount);

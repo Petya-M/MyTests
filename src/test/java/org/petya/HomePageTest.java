@@ -2,14 +2,16 @@ package org.petya;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class HomePageTest extends BaseTest {
 
-    @BeforeClass
+    @BeforeMethod
     public void loginOnce() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToBasePage();
@@ -17,11 +19,13 @@ public class HomePageTest extends BaseTest {
         loginPage.login("petyamar", "159753");
     }
 
+    //Gets the posts count for one user
     @Test
-    public void testPostsCount() {
+    public void getPostsCountForOneUser() {
         HomePage homePage = new HomePage(driver);
         homePage.hasPostByAuthorName("petyamar");
         List<WebElement> author = driver.findElements(By.xpath("//app-post-detail[.//a[@href='/users/11612']]"));
+        Assert.assertFalse(author.isEmpty());
         System.out.println("Posts from this author: " + author.size());
 
     }

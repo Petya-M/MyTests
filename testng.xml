@@ -2,35 +2,33 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Tests" verbose="1">
 
-
     <test name="Login Tests">
         <classes>
             <class name="org.petya.LoginTest"/>
         </classes>
     </test>
 
-    <test name="Create new post Test">
+    <test name="Create New Post Test">
         <classes>
             <class name="org.petya.CreateNewPostTest"/>
         </classes>
     </test>
 
-    <test name="Dislike button Test">
+    <test name="Home Page Test">
+        <classes>
+            <class name="org.petya.HomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="Click Dislikes Button Test">
         <classes>
             <class name="org.petya.DislikeButtonTest"/>
         </classes>
     </test>
 
-
     <test name="Screenshot Test">
         <classes>
             <class name="org.petya.ScreenshotTest"/>
-        </classes>
-    </test>
-
-    <test name="Header Page Test">
-        <classes>
-            <class name="org.petya.HomePageTest"/>
         </classes>
     </test>
 </suite>

@@ -20,7 +20,7 @@ public class ScreenshotTest extends BaseTest {
 
 
     private static final String SCREENSHOTS_DIR = "target/screenshots";
-   
+
 
     @BeforeClass
     @Override
@@ -29,7 +29,8 @@ public class ScreenshotTest extends BaseTest {
 
         new File(SCREENSHOTS_DIR).mkdirs();
     }
-    
+
+    // Making screenshot of the login form
     @Test
     public void loginFormScreenshot() throws IOException {
         LoginPage loginPage = new LoginPage(driver);

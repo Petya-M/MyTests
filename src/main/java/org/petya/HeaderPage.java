@@ -12,10 +12,11 @@ public class HeaderPage extends BasePage {
 
     private final By profilePageHeader = By.cssSelector("#nav-link-profile");
     private final By newPostHeader = By.cssSelector("#nav-link-new-post");
-    private final By inputPostField = By.cssSelector("input.input-lg");
+    private final By inputPostField = By.cssSelector(".file.ng-untouched");
     private final By clickCreatePost = By.cssSelector("#create-post");
     private final By postTextField = By.cssSelector("input.mb-4");
-    private final By dislikeButton = By.xpath("//app-post-detail[.//img[@src='https://i.imgur.com/1Pln5FJ.jpeg']]//i[contains(@class, 'fa-thumbs-down')]");
+    private final By dislikeButton = By.xpath("(//app-post-detail)[1]//i[contains(@class,'fa-thumbs-down')]");
+    String postText = "My new post!";
 
 
     public HeaderPage(WebDriver driver) {
@@ -46,7 +47,7 @@ public class HeaderPage extends BasePage {
         typeText(postTextField, postText);
     }
 
-    public void clickDislikeButton(){
+    public void clickDislikeButton() {
         click(dislikeButton);
     }
 

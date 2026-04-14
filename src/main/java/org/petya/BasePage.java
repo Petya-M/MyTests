@@ -16,7 +16,7 @@ public class BasePage {
     protected WebDriverWait wait;
 
     protected final By inputFileElement = By.cssSelector("input.file[type='file']");
-    protected static final String baseUrl = "http://training.skillo-bg.com:4200";
+    protected static final String baseUrl = "http://training.skillo-bg.com:4300";
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -52,7 +52,7 @@ public class BasePage {
     }
 
     protected void navigateTo() {
-      driver.get(baseUrl + "http://training.skillo-bg.com:4200/posts/all");
+        driver.get(baseUrl + "/posts/all");
     }
 
     public void navigateToBasePage() {

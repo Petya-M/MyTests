@@ -31,7 +31,6 @@ public class BaseTest {
         }
     }
 
-
     public WebDriver driver() {
         return null;
     }

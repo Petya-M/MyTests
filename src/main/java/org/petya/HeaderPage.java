@@ -39,13 +39,6 @@ public class HeaderPage extends BasePage {
     }
 
     /**
-     * Selects the post input field.
-     */
-    public void selectPostField() {
-        click(inputPostField);
-    }
-
-    /**
      * Clicks the button to submit a new post.
      */
     public void clickCreatePostButton() {
@@ -65,6 +58,15 @@ public class HeaderPage extends BasePage {
      */
     public void clickDislikeButton() {
         click(dislikeButton);
+    }
+
+    /**
+     * Returns the number of posts for the current user.
+     * @return the posts count as integer
+     */
+    public int getPostsCount() {
+        String text = waitAndVisible(By.cssSelector("ul li:first-child strong.profile-stat-count")).getText();
+        return Integer.parseInt(text);
     }
 
 }

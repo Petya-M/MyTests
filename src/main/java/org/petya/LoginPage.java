@@ -76,9 +76,4 @@ public class LoginPage extends BasePage {
         click(profileButton);
 
     }
-
-
-    // public void navigateToPage() {
-    // driver.navigate().to(baseUrl);
-    //}
 }

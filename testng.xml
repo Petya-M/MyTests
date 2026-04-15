@@ -20,7 +20,7 @@
 
     <test name="Home Page Test">
         <classes>
-            <class name="org.petya.HomePageTest"/>
+            <class name="org.petya.PostsCountForUserTest"/>
         </classes>
     </test>
 

@@ -17,24 +17,11 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    //not relevant test. Keep for reference
-   // @Test(priority = 1)
-   //// public void testLogin() {
-      ////  LoginPage loginPage = new LoginPage(driver);
-       // HomePage homePage = new HomePage(driver);
-      // loginPage.navigateToBasePage();
-      //  loginPage.clickLoginButton();
-       /// loginPage.login("petyamar", "159753");
-        //homePage.verifyPageLoaded();
-       // Assert.assertTrue(homePage.isUrlLoaded(), "User was not redirected to the Home Page!");
-   // }
-
        //Testing the login with correct credentials, correct username - wrong pass and wrong credentials
     @Test(priority = 1, dataProvider = "loginCredentials")
     public void verifyLogin(String username, String password, boolean expectedResult) {
         LoginService loginService = new LoginService();
         boolean actualResult = loginService.login(username, password);
-
         Assert.assertEquals(actualResult, expectedResult, "Login result mismatch for user: " + username);
     }
 

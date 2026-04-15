@@ -31,15 +31,12 @@ public class CreateNewPostTest extends BaseTest {
         headerPage.clickOnNewPost();
         headerPage.uploadPicture(postPicture);
         headerPage.enterPostText("My new post!");
-        //WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='toast-container']//div[contains(@class,'toast-message')]")));
         Assert.assertEquals(postText, "My new post!");
         headerPage.clickCreatePostButton();
         WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='toast-container']//div[contains(@class,'toast-message')]")));
         assertTrue(toast.getText().contains("Post created!"), "Post not created");
 
     }
-    //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='toast-container']//div[contains(@class,'toast-message') and text()='Post created!']")));
-    //Assert.assertEquals(messageText, "Post created!");
 
     //Verify a post can't be created if all fields are not populated
     @Test

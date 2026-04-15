@@ -10,18 +10,22 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class TestListener implements ITestListener {
 
-    private static final String SCREENSHOT_DIR = "src/test/resources/screenshots";
+    private static final String SCREENSHOT_DIR = "target/screenshots";
     private final DocFile FileUtils;
 
     public TestListener(DocFile fileUtils) {
         FileUtils = fileUtils;
     }
 
+    /**
+     * Executes actions when a test fails (e.g., taking screenshots, logging details).
+     * @param result the test result containing failure details
+     */
     @Override
     public void onTestFailure(ITestResult result) {
 
@@ -37,7 +41,7 @@ public class TestListener implements ITestListener {
                 directory.mkdirs();
             }
 
-            String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
             String fileName = testName + "_" + timestamp + ".png";
 
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);

@@ -17,30 +17,52 @@ public class HeaderPage extends BasePage {
     private final By postTextField = By.cssSelector("input.mb-4");
     private final By dislikeButton = By.xpath("(//app-post-detail)[1]//i[contains(@class,'fa-thumbs-down')]");
 
+    /**
+     * Clicks on the profile section in the header.
+     */
     public HeaderPage(WebDriver driver) {
         super(driver); // Calls the BasePage constructor
     }
 
+    /**
+     * Clicks the button to create a new post.
+     */
     public void clickOnHeaderProfile() {
         click(profilePageHeader);
     }
 
+    /**
+     * Clicks the button to create a new post.
+     */
     public void clickOnNewPost() {
         click(newPostHeader);
     }
 
+    /**
+     * Selects the post input field.
+     */
     public void selectPostField() {
         click(inputPostField);
     }
 
+    /**
+     * Clicks the button to submit a new post.
+     */
     public void clickCreatePostButton() {
         click(clickCreatePost);
     }
 
+    /**
+     * Enters text into the post field.
+     * @param postText the content of the post
+     */
     public void enterPostText(String postText) {
         typeText(postTextField, postText);
     }
 
+    /**
+     * Clicks the dislike button on a post.
+     */
     public void clickDislikeButton() {
         click(dislikeButton);
     }

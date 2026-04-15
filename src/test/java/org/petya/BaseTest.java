@@ -31,7 +31,12 @@ public class BaseTest {
         }
     }
 
-    public WebDriver driver() {
-        return null;
+    /**
+     * Returns the active WebDriver instance.
+     *
+     * @return the current WebDriver
+     */
+    public WebDriver getDriver() {
+        return driver;
     }
 }

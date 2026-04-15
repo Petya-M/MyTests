@@ -1,13 +1,14 @@
 package org.petya.Listeners;
 
 import jdk.javadoc.internal.doclets.toolkit.util.DocFile;
-import jdk.javadoc.internal.doclets.toolkit.util.DocFileIOException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.petya.BaseTest;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,8 +19,6 @@ import java.time.format.DateTimeFormatter;
  * TestNG listener that captures screenshots when a test fails.
  */
 public class TestListener implements ITestListener {
-
-    private DocFile FileUtils;
 
     /**
      * Triggered when a test method fails.
@@ -56,9 +55,11 @@ public class TestListener implements ITestListener {
         String destinationPath = "screenshots/" + testName + "_" + timestamp + ".png";
 
         try {
-            FileUtils.copyFile(source, new File(destinationPath));
-            System.out.println("Screenshot saved at: " + destinationPath);
+            Files.copy(source.toPath(), new File(destinationPath).toPath(),
+                    StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Test " + testName + " failed. Screenshot saved at: " + destinationPath);
         } catch (IOException e) {
+            System.err.println("Failed to save screenshot: " + e.getMessage());
             e.printStackTrace();
         }
     }

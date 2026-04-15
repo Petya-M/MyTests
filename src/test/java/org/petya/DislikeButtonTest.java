@@ -3,12 +3,13 @@ package org.petya;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.petya.Listeners.TestListener;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-
 import static org.openqa.selenium.By.*;
 
+@Listeners(TestListener.class)
 public class DislikeButtonTest extends BaseTest {
 
 
